@@ -1,0 +1,10 @@
+.box-wrapper {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.box-wrapper > img {
+  width: 50px;
+  height: 50px;
+}

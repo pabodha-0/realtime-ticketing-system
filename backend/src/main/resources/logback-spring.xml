@@ -1,0 +1,14 @@
+<configuration>
+    <!-- Define the WebSocket Appender -->
+    <appender name="WEBSOCKET" class="com.pabodha.ticketingsystem.config.WebSocketLogAppender">
+        <!-- Inject the WebSocket handler bean -->
+        <logWebSocketHandler>
+            <bean class="com.pabodha.ticketingsystem.config.LogWebSocketHandler" />
+        </logWebSocketHandler>
+    </appender>
+
+    <!-- Configure log levels and attach the appender -->
+    <root level="INFO">
+        <appender-ref ref="WEBSOCKET" />
+    </root>
+</configuration>

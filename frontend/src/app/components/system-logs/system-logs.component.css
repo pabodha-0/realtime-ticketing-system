@@ -1,0 +1,36 @@
+.box-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.box-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.box-text > p {
+  color: #949494;
+}
+
+.header-row > th {
+  text-align: left;
+  color: #949494;
+  font-weight: 500;
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.log-table tr {
+  height: 30px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.table-wrapper {
+  max-height: 600px;
+  overflow-y: scroll;
+}

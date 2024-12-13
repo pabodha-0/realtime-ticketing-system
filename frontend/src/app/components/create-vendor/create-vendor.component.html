@@ -1,0 +1,70 @@
+<form [formGroup]="vendorForm" (ngSubmit)="onSubmit()" class="box-wrapper">
+  <div class="box-icon">
+    <img src="user-management-icon.svg" alt="" />
+  </div>
+  <div class="box-text">
+    <h2>Create a Vendor</h2>
+    <p>
+      Effortlessly manage ticket sales and customer interactions with our
+      real-time ticketing platform
+    </p>
+  </div>
+  <div class="input-grid-wrapper">
+    <label class="input-wrapper">
+      <span>Name</span>
+      <input
+        type="text"
+        formControlName="name"
+        placeholder="Enter customer name"
+      />
+      <small
+        *ngIf="
+          vendorForm.get('name')?.invalid && vendorForm.get('name')?.touched
+        "
+        class="error"
+      >
+        Name is required
+      </small>
+    </label>
+    <div class="input-grid">
+      <label class="input-wrapper">
+        <span>Tickets per release</span>
+        <input
+          type="number"
+          formControlName="ticketsPerRelease"
+          placeholder="Enter tickets per release"
+        />
+        <small
+          *ngIf="
+            vendorForm.get('ticketsPerRelease')?.invalid &&
+            vendorForm.get('ticketsPerRelease')?.touched
+          "
+          class="error"
+        >
+          Tickets per release is required and must be a positive number
+        </small>
+      </label>
+      <label class="input-wrapper">
+        <span>Release interval</span>
+        <input
+          type="number"
+          formControlName="releaseInterval"
+          placeholder="Enter retrieval rate"
+        />
+        <small
+          *ngIf="
+            vendorForm.get('releaseInterval')?.invalid &&
+            vendorForm.get('releaseInterval')?.touched
+          "
+          class="error"
+        >
+          Release interval is required and must be a positive number
+        </small>
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="cta-btn" [disabled]="vendorForm.invalid">
+    <img src="add-icon.svg" alt="Create Vendor" />
+    <span>Create Vendor</span>
+  </button>
+</form>

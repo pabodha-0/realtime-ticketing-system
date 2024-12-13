@@ -1,0 +1,51 @@
+<form [formGroup]="customerForm" (ngSubmit)="onSubmit()" class="box-wrapper">
+  <div class="box-icon">
+    <img src="user-management-icon.svg" alt="" />
+  </div>
+  <div class="box-text">
+    <h2>Create a Customer</h2>
+    <p>
+      Effortlessly manage ticket sales and customer interactions with our
+      real-time ticketing platform
+    </p>
+  </div>
+  <div class="input-grid-wrapper">
+    <label class="input-wrapper">
+      <span>Name</span>
+      <input
+        type="text"
+        formControlName="name"
+        placeholder="Enter customer name"
+      />
+      <small
+        *ngIf="
+          customerForm.get('name')?.invalid && customerForm.get('name')?.touched
+        "
+        class="error"
+      >
+        Name is required
+      </small>
+    </label>
+    <label class="input-wrapper">
+      <span>Retrieval Interval</span>
+      <input
+        type="text"
+        formControlName="retrievalInterval"
+        placeholder="Enter retrieval interval"
+      />
+      <small
+        *ngIf="
+          customerForm.get('retrievalInterval')?.invalid &&
+          customerForm.get('retrievalInterval')?.touched
+        "
+        class="error"
+      >
+        Retrieval Interval is required
+      </small>
+    </label>
+  </div>
+  <button type="submit" class="cta-btn" [disabled]="customerForm.invalid">
+    <img src="add-icon.svg" alt="Create Customer" />
+    <span>Create Customer</span>
+  </button>
+</form>

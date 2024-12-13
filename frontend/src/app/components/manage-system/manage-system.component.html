@@ -1,0 +1,144 @@
+<div class="box-wrapper">
+  <div class="box-icon">
+    <img src="rocket-icon.svg" alt="" />
+  </div>
+
+  <div class="box-text">
+    <h2>Manage the simulation</h2>
+    <p>
+      Effortlessly manage ticket sales and customer interactions with our
+      real-time ticketing platform
+    </p>
+  </div>
+
+  <table>
+    <tbody>
+      <tr>
+        <td>System Status</td>
+        @if (isSystemRunning()) {
+        <td class="success-msg">Running</td>
+        } @if(!isSystemRunning()) {
+        <td class="error-msg">Not Running</td>
+        }
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="btn-wrapper">
+    <button class="cta-btn" (click)="toggleSystem()">
+      @if (isSystemRunning()) { <img src="stop-icon.svg" alt="Stop System" />}
+      @if(!isSystemRunning()) { <img src="power-icon.svg" alt="Start System" />}
+      <span>{{
+        isSystemRunning() ? "Stop the system" : "Start the system"
+      }}</span>
+    </button>
+
+    <button
+      class="cta-btn cta-btn-secondary"
+      (click)="isConfigPanelOpen.set(true)"
+    >
+      Configure System
+    </button>
+  </div>
+
+  @if (isConfigPanelOpen()) {
+  <div class="overlay">
+    <form
+      [formGroup]="systemConfigForm"
+      (ngSubmit)="onSubmit()"
+      class="input-form"
+    >
+      <div class="form-header">
+        <div class="form-text">
+          <h2>System Configuration</h2>
+          <p>Configure the system to meet your needs</p>
+        </div>
+        <div>
+          <button type="button" class="close-btn" (click)="closeConfigPanel()">
+            <img src="close-icon.svg" alt="Close" />
+          </button>
+        </div>
+      </div>
+      <div class="input-grid">
+        <label class="input-wrapper">
+          <span>Total Tickets</span>
+          <input
+            type="number"
+            formControlName="totalTickets"
+            placeholder="Enter total tickets"
+          />
+          <small
+            *ngIf="
+              systemConfigForm.get('totalTickets')?.invalid &&
+              systemConfigForm.get('totalTickets')?.touched
+            "
+            class="error"
+          >
+            Total tickets is required and must be positive
+          </small>
+        </label>
+        <label class="input-wrapper">
+          <span>Ticket Release Rate</span>
+          <input
+            type="number"
+            formControlName="ticketReleaseRate"
+            placeholder="Enter ticket release rate"
+          />
+          <small
+            *ngIf="
+              systemConfigForm.get('ticketReleaseRate')?.invalid &&
+              systemConfigForm.get('ticketReleaseRate')?.touched
+            "
+            class="error"
+          >
+            Ticket release rate is required and must be positive
+          </small>
+        </label>
+        <label class="input-wrapper">
+          <span>Customer Retrieval Rate</span>
+          <input
+            type="number"
+            formControlName="customerRetrievalRate"
+            placeholder="Enter customer retrieval rate"
+          />
+          <small
+            *ngIf="
+              systemConfigForm.get('customerRetrievalRate')?.invalid &&
+              systemConfigForm.get('customerRetrievalRate')?.touched
+            "
+            class="error"
+          >
+            Customer retrieval rate is required and must be positive
+          </small>
+        </label>
+        <label class="input-wrapper">
+          <span>Max Ticket Capacity</span>
+          <input
+            type="number"
+            formControlName="maxTicketCapacity"
+            placeholder="Enter max ticket capacity"
+          />
+          <small
+            *ngIf="
+              systemConfigForm.get('maxTicketCapacity')?.invalid &&
+              systemConfigForm.get('maxTicketCapacity')?.touched
+            "
+            class="error"
+          >
+            Max ticket capacity is required and must be positive
+          </small>
+        </label>
+      </div>
+      <button
+        type="submit"
+        class="cta-btn"
+        [disabled]="systemConfigForm.invalid"
+        (click)="closeConfigPanel()"
+      >
+        <img src="add-icon.svg" alt="Save Configuration" />
+        <span>Save Configuration</span>
+      </button>
+    </form>
+  </div>
+  }
+</div>

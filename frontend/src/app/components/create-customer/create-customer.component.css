@@ -1,0 +1,27 @@
+.box-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.box-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.box-text > p {
+  color: #949494;
+}
+
+.input-grid-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}

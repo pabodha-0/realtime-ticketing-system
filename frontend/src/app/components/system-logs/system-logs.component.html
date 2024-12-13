@@ -1,0 +1,35 @@
+<div class="box-wrapper">
+  <div class="box-icon">
+    <img src="settings-icon.svg" alt="Settings" />
+  </div>
+
+  <div class="box-text">
+    <h2>System Logs</h2>
+    <p>
+      Effortlessly manage ticket sales and customer interactions with our
+      real-time ticketing platform
+    </p>
+  </div>
+
+  <!-- Table to display logs -->
+  <div class="table-wrapper">
+    <table class="log-table">
+      <thead>
+        <tr class="header-row">
+          <th width="10%">Severity</th>
+          <th width="20%">Timestamp</th>
+          <th>Message</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        @for (log of logs; track $index) {
+        <tr>
+          <td>{{ log.severity }}</td>
+          <td>{{ log.timestamp }}</td>
+          <td>{{ log.message }}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

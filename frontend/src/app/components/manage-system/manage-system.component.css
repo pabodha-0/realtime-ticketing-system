@@ -1,0 +1,98 @@
+.box-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.box-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.box-text > p {
+  color: #949494;
+}
+
+.cta-btn {
+  margin-top: auto;
+}
+
+.success-msg {
+  color: #4caf50;
+}
+
+.error-msg {
+  color: #f44336;
+}
+
+.btn-wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.cta-btn-secondary {
+  background-color: transparent;
+  color: black;
+  height: 100%;
+  transition: 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.cta-btn-secondary:hover {
+  border: 1px solid #e5e5e5;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-form {
+  width: 500px;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-header button {
+  background-color: transparent;
+  border: none;
+  color: #949494;
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.form-header img {
+  width: 20px;
+  height: 20px;
+}
